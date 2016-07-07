@@ -1,0 +1,33 @@
+{
+  "name": "ebenezer-mx",
+  "description": "Build system for ebenezer Mexico Wordpress theme.",
+  "main": "index.js",
+  "authors": [
+    "joshisadesigner"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "wordpres",
+    "theme",
+    "gulp",
+    "sass",
+    "browser-sync",
+    "susy"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "susy": "~2.2.12",
+    "bootstrap-sass": "bootstrap-sass-official#^3.3.6",
+    "font-awesome": "fontawesome#^4.6.3"
+  }
+}
