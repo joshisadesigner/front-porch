@@ -45,6 +45,7 @@ function fplc_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary', 'fplc' ),
+		'main-menu' => esc_html__( 'Main Menu', 'fplc' ),
 	) );
 
 	/*
@@ -66,6 +67,7 @@ function fplc_setup() {
 	) ) );
 }
 endif;
+
 add_action( 'after_setup_theme', 'fplc_setup' );
 
 /**
@@ -104,7 +106,15 @@ add_action( 'widgets_init', 'fplc_widgets_init' );
 function fplc_scripts() {
 	wp_enqueue_style( 'fplc-style', get_stylesheet_uri() );
 
+	wp_enqueue_style( 'fplc-google-fonts', "https://fonts.googleapis.com/css?family=Oswald|Source+Sans+Pro:300,300i,400,700" );
+
+	wp_enqueue_script( 'fplc-bootstrap', get_template_directory_uri() . '/js/bootstrap.js', array(), '20151215', true );
+
+	wp_enqueue_script( 'fplc-bootstrap-min', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '20151215', true );
+
 	wp_enqueue_script( 'fplc-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+
+	wp_enqueue_script( 'fplc-main', get_template_directory_uri() . '/js/main.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'fplc-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 

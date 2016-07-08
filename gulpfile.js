@@ -8,8 +8,8 @@ var gulp        =   require( 'gulp' ),
 var config = {
     sassPath:           './sass',
     bowerDir:           './bower_components',
-    bootstrapDir:       '/bootstrap-sass-official/assets/stylesheets',
-    fontawesomedir:     '/fontawesome/scss'
+    bootstrapDir:       '/bootstrap-custom-sass/assets/stylesheets',
+    fontawesomeDir:     '/fontawesome/scss/'
 }
 
 gulp.task( 'bower', function() {
@@ -32,9 +32,10 @@ gulp.task( 'sass', function() {
         .pipe( sourcemaps.init()  )
         .pipe( sass({
                 outputStyle: 'expanded',
-                loadPath: [ config.bowerDir + config.bootstrapDir,
-                            config.bowerDir +
-                        ]
+                includePaths: [
+                    config.bowerDir + config.bootstrapDir,
+                    config.bowerDir + config.fontawesomeDir,
+                ]
             }).on( 'error', sass.logError ) )
         .pipe( autoprefixer() )
         .pipe( sourcemaps.write('./maps') )
@@ -54,6 +55,6 @@ gulp.task( 'browser-sync', function() {
     });
 });
 
-gulp.task( 'default', [ 'sass', 'browser-sync' ], function() {
+gulp.task( 'serve', [ 'sass', 'browser-sync' ], function() {
    gulp.watch( 'sass/**/*.scss', [ 'sass' ] )
 });

@@ -14,7 +14,7 @@
   // ============================================================
 
   function transitionEnd() {
-    var el = document.createElement('bootstrap')
+    var el = document.createElement('bootstrap-custom')
 
     var transEndEventNames = {
       WebkitTransition : 'webkitTransitionEnd',

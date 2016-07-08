@@ -120,3 +120,20 @@ function fplc_category_transient_flusher() {
 }
 add_action( 'edit_category', 'fplc_category_transient_flusher' );
 add_action( 'save_post',     'fplc_category_transient_flusher' );
+
+
+function fplc_main_menu() {
+	if ( has_nav_menu( 'main-menu' ) ) {
+		wp_nav_menu(
+			array(
+				'theme_location' 	=> 'main-menu',
+				'container'			=> 'nav',
+				'container_class'	=> 'main-navigation',
+				'menu_id'			=> 'nav',
+				'menu_class'		=> 'nav navbar-nav',
+				'depth'				=>	3,
+				'fallback_cb'		=>	'',
+			)
+		);
+	}
+}
